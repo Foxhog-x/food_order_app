@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import cartIcon from "/shopping-cart.png";
 import useCartStore from "../store/useCartStore";
-import { useEffect } from "react";
+
 export const Header = () => {
+  const { getTotalCountofItem } = useCartStore();
   return (
     <nav className="border-b border-gray-300 bg-white h-20 flex items-center shadow-lg">
       <div className="container mx-auto flex justify-between items-center px-4">
@@ -31,7 +32,9 @@ export const Header = () => {
               <img src={cartIcon} alt="Cart Icon" className="h-6 w-6 mr-2" />
               <div className="flex">
                 <span>Cart</span>
-                <span className="relative right-5 top-5">4</span>
+                <span className="relative right-5 top-5">
+                  {getTotalCountofItem() ? getTotalCountofItem() : ""}
+                </span>
               </div>
             </Link>
           </li>

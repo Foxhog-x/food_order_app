@@ -18,7 +18,8 @@ interface CartStore {
   removeItem : (id: number)=> void;
   clearAllItems: ()=> void;
   calculateTotal: () => number;
- 
+  getUniqueItemCount: ()=> number;
+  getTotalCountofItem: ()=> number;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
@@ -50,7 +51,7 @@ const useCartStore = create<CartStore>((set, get) => ({
   decreaseQuantity : (id)=> set((state)=> {
     const items = state.items;
     const item = items.find((item) => item.id === id);
-    if (item) {
+    if (item && item.quantity > 1) {
       item.quantity -= 1;  
     }
    return {items: [...items]}
@@ -71,10 +72,26 @@ const useCartStore = create<CartStore>((set, get) => ({
   calculateTotal: () => {
     return get().items.reduce((total, item) => total + item.price * item.quantity, 0);
   },
-  getItemCount: () => {
-    return get().items.length; 
-  }
 
+
+  getUniqueItemCount:()=>{
+        return get().items.length
+  },
+
+  
+  getTotalCountofItem: () => {
+  
+    const state = get();
+    const items = state.items;
+    let totalQuantity = 0;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];  
+      totalQuantity += item.quantity;  
+    }
+   
+    return totalQuantity
+  },
+ 
 }))
  
 

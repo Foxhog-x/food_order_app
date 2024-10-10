@@ -8,7 +8,7 @@ export const Cartpage = () => {
     removeItem,
     clearAllItems,
     calculateTotal,
-    getItemCount,
+    getUniqueItemCount,
   } = useCartStore();
   console.log(items, "cart Items");
   const handleIncrement = (id) => {
@@ -90,7 +90,7 @@ export const Cartpage = () => {
         >
           Clear All
         </button>
-        <p>unique Item: {getItemCount() ? getItemCount() : ""}</p>
+        <p>unique Item: {getUniqueItemCount() ? getUniqueItemCount() : ""}</p>
       </div>
     </div>
   );
