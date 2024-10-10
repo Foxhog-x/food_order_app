@@ -8,6 +8,7 @@ export const Cartpage = () => {
     removeItem,
     clearAllItems,
     calculateTotal,
+    getItemCount,
   } = useCartStore();
   console.log(items, "cart Items");
   const handleIncrement = (id) => {
@@ -69,7 +70,7 @@ export const Cartpage = () => {
                   </div>
                 </div>
                 <p className="text-xl font-semibold">
-                  ${item.price * item.quantity}
+                  ${(item.price * item.quantity).toFixed(2)}
                 </p>
               </div>
             </div>
@@ -80,13 +81,16 @@ export const Cartpage = () => {
       )}
 
       <div className="mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
-        <h3 className="text-2xl font-bold mb-4">Total:{calculateTotal()}</h3>
+        <h3 className="text-2xl font-bold mb-4">
+          Total:{calculateTotal().toFixed(2)}
+        </h3>
         <button
           className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
           onClick={() => handleClear()}
         >
           Clear All
         </button>
+        <p>unique Item: {getItemCount() ? getItemCount() : ""}</p>
       </div>
     </div>
   );

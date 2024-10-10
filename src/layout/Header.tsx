@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import cartIcon from "/shopping-cart.png";
+import useCartStore from "../store/useCartStore";
+import { useEffect } from "react";
 export const Header = () => {
   return (
     <nav className="border-b border-gray-300 bg-white h-20 flex items-center shadow-lg">
@@ -27,7 +29,10 @@ export const Header = () => {
           <li className="list-none">
             <Link to={"/cart"} className="flex hover:to-blue-500">
               <img src={cartIcon} alt="Cart Icon" className="h-6 w-6 mr-2" />
-              Cart
+              <div className="flex">
+                <span>Cart</span>
+                <span className="relative right-5 top-5">4</span>
+              </div>
             </Link>
           </li>
         </div>

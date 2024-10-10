@@ -2,7 +2,8 @@ import {create} from 'zustand';
 
  interface TostProps {
     message: string,
-    visible: boolean
+    visible: boolean,
+    showToast: (message: string)=> void;
  }
 const useToastStore = create<TostProps>((set) => ({
   message: '',
