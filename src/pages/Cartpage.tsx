@@ -102,7 +102,7 @@ export const Cartpage = () => {
         <div>Shoping Cart is Empty</div>
       )}
 
-      <div className="mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
+      <div className="mt-8 p-6 bg-inherit rounded-lg shadow-lg">
         <div className="flex justify-between">
           <div>
             <h3 className="text-2xl font-bold mb-4">
