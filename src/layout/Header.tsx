@@ -1,13 +1,9 @@
-import { useState } from "react";
-
 export const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <div>
       <nav className="border-b border-gray-300 bg-white h-20 flex items-center shadow-lg">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="border border-black flex items-center gap-2">
+          <div className="border border-black flex items-center gap-5">
             <button>
               <img src="/hamburger.png" alt="" height={20} width={20} />
             </button>

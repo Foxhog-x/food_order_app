@@ -7,7 +7,7 @@ export const Layout = ({ children }: Props) => {
     <>
       <div>
         <Header />
-        <div className="container">{children}</div>
+        <div className="container mx-auto">{children}</div>
       </div>
     </>
   );
