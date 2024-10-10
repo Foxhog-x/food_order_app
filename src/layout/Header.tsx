@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
   return (
     <div>
@@ -7,11 +9,13 @@ export const Header = () => {
             <button>
               <img src="/hamburger.png" alt="" height={20} width={20} />
             </button>
-            <a href="">LOGO</a>
+            <Link to="/">LOGO</Link>
           </div>
           <div className="flex gap-10">
-            <li className="list-none">Menu</li>
-            <li className="list-none">Cart</li>
+            {/* <li className="list-none">Menu</li> */}
+            <li className="list-none">
+              <Link to={"/cart"}>Cart</Link>
+            </li>
           </div>
         </div>
       </nav>
