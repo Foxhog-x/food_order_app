@@ -9,9 +9,9 @@ export const Header = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center gap-5">
           <div className="md:hidden block">
-            <button>
+            {/* <button>
               <img src="/hamburger.png" alt="" height={20} width={20} />
-            </button>
+            </button> */}
           </div>
 
           <Link to="/">
