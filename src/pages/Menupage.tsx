@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
 import { Card } from "../components/card/Card";
-
+interface FoodItem {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  availability: boolean;
+  rating: number;
+  ingredients: string[];
+  vegetarian: boolean;
+  vegan?: boolean;
+}
 export const Menupage = () => {
-  const [foodList, setFoodListItems] = useState([]);
+  const [foodList, setFoodListItems] = useState<FoodItem[]>([]);
 
   const fetchFoodListData = async () => {
     try {

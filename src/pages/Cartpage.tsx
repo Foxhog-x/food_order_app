@@ -11,14 +11,14 @@ export const Cartpage = () => {
     getUniqueItemCount,
   } = useCartStore();
   console.log(items, "cart Items");
-  const handleIncrement = (id) => {
+  const handleIncrement = (id: number) => {
     increaseQuantity(id);
   };
-  const handleDecrement = (id) => {
+  const handleDecrement = (id: number) => {
     decreaseQuantity(id);
   };
 
-  const handleRemove = (id) => {
+  const handleRemove = (id: number) => {
     removeItem(id);
   };
 
@@ -30,13 +30,14 @@ export const Cartpage = () => {
       <h2 className="text-3xl font-bold mb-8">Your Shopping Cart</h2>
       {items.length > 0 ? (
         items.map((item) => {
+          console.log(item, "itemssss");
           return (
             <div className="space-y-6">
               <div className="flex justify-between items-center p-4 border-b border-gray-200 overflow-hidden">
-                <div className="flex">
+                <div className="flex gap-4">
                   <img
-                    className="h-20 object-cover "
-                    src="/logo.jpg"
+                    className="h-20 w-20 object-cover "
+                    src={item.image}
                     alt="logo"
                   />
                   <div>

@@ -1,12 +1,26 @@
 import useCartStore from "../../store/useCartStore";
 import useToastStore from "../../store/useToastStore";
-
-export const Card = ({ foodItemData }) => {
+interface FoodItem {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  availability: boolean;
+  rating: number;
+  ingredients: string[];
+  vegetarian: boolean;
+  vegan?: boolean;
+  quantity: number;
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Card = ({ foodItemData }: any) => {
   const { name, image, price, description } = foodItemData;
   console.log(foodItemData);
   const { showToast } = useToastStore();
   const { addItem } = useCartStore();
-  const handleAddToCart = (itemAdded) => {
+  const handleAddToCart = (itemAdded: FoodItem) => {
     addItem(itemAdded);
     showToast("Added to cart");
   };
