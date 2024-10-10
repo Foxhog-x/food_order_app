@@ -37,6 +37,11 @@ export const Cartpage = () => {
   const handleClear = () => {
     clearAllItems();
   };
+
+  const handleSubmit = () => {
+    alert("Thank You for Placing Order feel Free to Explore more");
+    handleClear();
+  };
   return (
     <div className="container mx-auto p-8">
       <h2 className="text-3xl font-bold mb-8">Your Shopping Cart</h2>
@@ -94,16 +99,31 @@ export const Cartpage = () => {
       )}
 
       <div className="mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
-        <h3 className="text-2xl font-bold mb-4">
-          Total:{calculateTotal().toFixed(2)}
-        </h3>
-        <button
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
-          onClick={() => handleClear()}
-        >
-          Clear All
-        </button>
-        <p>unique Item: {getUniqueItemCount() ? getUniqueItemCount() : ""}</p>
+        <div className="flex justify-between">
+          <div>
+            <h3 className="text-2xl font-bold mb-4">
+              Total:{calculateTotal().toFixed(2)}
+            </h3>
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
+              onClick={() => handleClear()}
+            >
+              Clear All
+            </button>
+            <p>
+              unique Item: {getUniqueItemCount() ? getUniqueItemCount() : ""}
+            </p>
+          </div>
+          <div>
+            {items.length > 0 ? (
+              <button className="bg-blue-500" onClick={() => handleSubmit()}>
+                Place Order
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
