@@ -10,7 +10,7 @@ export const Card = ({ foodItemData }) => {
   return (
     <>
       {foodItemData && (
-        <div className="max-w-sm p-5 rounded border border-black flex flex-col items-center justify-between bg-white shadow-lg overflow-hidden">
+        <div className="max-w-sm p-3 rounded flex flex-col items-center justify-between gap-4 bg-white shadow-xl overflow-hidden">
           <img
             className="w-55 min-h-52 object-fit"
             src="/logo.jpg"
@@ -25,7 +25,7 @@ export const Card = ({ foodItemData }) => {
                   <span className="text-2xl">${price}</span>
                 </div>
               </div>
-              <p className="line-clamp-2 hover:line-clamp-none transition-all duration-300 ease-in-out">
+              <p className="h-16 line-clamp-2 hover:line-clamp-none transition-all duration-300 ease-in-out">
                 {description}
               </p>
               <div className="flex justify-end items-center mt-4  ">

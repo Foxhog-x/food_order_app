@@ -2,13 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "../../layout/Layout";
 import { Menupage } from "../../pages/Menupage";
 import { Cartpage } from "../../pages/Cartpage";
+import { Homepage } from "../../pages/Homepage";
 
 export const AppRouter = () => {
   return (
     <>
       <Routes>
         <Route
-          path="/"
+          path="/menu"
           element={
             <Layout>
               <Menupage />
@@ -21,6 +22,15 @@ export const AppRouter = () => {
           element={
             <Layout>
               <Cartpage />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Homepage />
             </Layout>
           }
         />
