@@ -1,7 +1,10 @@
 import {create} from 'zustand';
 
- 
-const useToastStore = create((set) => ({
+ interface TostProps {
+    message: string,
+    visible: boolean
+ }
+const useToastStore = create<TostProps>((set) => ({
   message: '',
   visible: false,
   

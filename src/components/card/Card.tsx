@@ -1,10 +1,13 @@
 import useCartStore from "../../store/useCartStore";
+import useToastStore from "../../store/useToastStore";
 
 export const Card = ({ foodItemData }) => {
   const { name, price, description } = foodItemData;
+  const { showToast } = useToastStore();
   const { addItem } = useCartStore();
   const handleAddToCart = (itemAdded) => {
     addItem(itemAdded);
+    showToast("Added to cart");
   };
 
   return (
