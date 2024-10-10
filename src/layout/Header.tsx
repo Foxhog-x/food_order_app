@@ -5,7 +5,7 @@ import useCartStore from "../store/useCartStore";
 export const Header = () => {
   const { getTotalCountofItem } = useCartStore();
   return (
-    <nav className="border-b border-gray-300 bg-white h-20 flex items-center shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 border-b border-gray-300 bg-white h-20 flex items-center shadow-lg">
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center gap-5">
           <div className="md:hidden block">
@@ -22,8 +22,7 @@ export const Header = () => {
             />
           </Link>
         </div>
-        <div className="flex gap-10">
-          {/* <li className="list-none">Menu</li> */}
+        <div className="flex gap-7">
           <li className="list-none">
             <Link to={"/menu"}>Menu</Link>
           </li>
