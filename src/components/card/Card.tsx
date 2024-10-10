@@ -28,7 +28,7 @@ export const Card = ({ foodItemData }: any) => {
   return (
     <>
       {foodItemData && (
-        <div className="max-w-sm p-3 rounded-lg flex flex-col items-center justify-between gap-4 bg-white shadow-xl overflow-hidden">
+        <div className="max-w-sm p-3 rounded-lg flex flex-col items-center justify-between gap-4 bg-inherit shadow-xl overflow-hidden">
           <div className="flex items-center justify-center w-full h-80 overflow-hidden">
             <img
               className="h-full w-full object-fill"
@@ -50,6 +50,7 @@ export const Card = ({ foodItemData }: any) => {
               </p>
               <div className="flex justify-end items-center mt-4  ">
                 <button
+                  className="bg-green-300"
                   onClick={() => {
                     handleAddToCart(foodItemData);
                   }}

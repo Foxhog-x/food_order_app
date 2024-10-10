@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
 import useToastStore from "../store/useToastStore";
 import DeleteIcon from "/delete.png";
 export const Cartpage = () => {
+  const naviagate = useNavigate();
   const { showToast } = useToastStore();
   const {
     items,
@@ -13,6 +15,7 @@ export const Cartpage = () => {
     getUniqueItemCount,
   } = useCartStore();
   console.log(items, "cart Items");
+
   const handleIncrement = (id: number) => {
     increaseQuantity(id);
     showToast("added");
@@ -41,6 +44,7 @@ export const Cartpage = () => {
   const handleSubmit = () => {
     alert("Thank You for Placing Order feel Free to Explore more");
     handleClear();
+    naviagate("/menu");
   };
   return (
     <div className="container mx-auto p-8">
