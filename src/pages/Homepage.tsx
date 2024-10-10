@@ -1,6 +1,6 @@
 export const Homepage = () => {
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen -z-10">
       <img
         src="/pexels-ella-olsson-572949-1640777.jpg"
         alt="hero"
