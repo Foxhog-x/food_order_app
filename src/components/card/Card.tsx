@@ -4,7 +4,7 @@ export const Card = ({ foodItemData }) => {
   const { name, price, description } = foodItemData;
   const { addItem } = useCartStore();
   const handleAddToCart = (itemAdded) => {
-    addItem(foodItemData);
+    addItem(itemAdded);
   };
 
   return (

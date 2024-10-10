@@ -1,8 +1,14 @@
 import useCartStore from "../store/useCartStore";
 
 export const Cartpage = () => {
-  const { items } = useCartStore();
+  const { items, increaseQuantity, decreaseQuantity } = useCartStore();
   console.log(items, "cart Items");
+  const handleIncrement = (id) => {
+    increaseQuantity(id);
+  };
+  const handleDecrement = (id) => {
+    decreaseQuantity(id);
+  };
   return (
     <div className="container mx-auto p-8">
       <h2 className="text-3xl font-bold mb-8">Your Shopping Cart</h2>
@@ -22,10 +28,16 @@ export const Cartpage = () => {
                     <p className="text-gray-500">${item.price} each</p>
                     <p className="text-gray-700">Quantity: {item.quantity}</p>
                     <div className="flex mt-2 space-x-2">
-                      <button className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors">
+                      <button
+                        onClick={() => handleDecrement(item.id)}
+                        className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
+                      >
                         -
                       </button>
-                      <button className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors">
+                      <button
+                        className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
+                        onClick={() => handleIncrement(item.id)}
+                      >
                         +
                       </button>
                     </div>

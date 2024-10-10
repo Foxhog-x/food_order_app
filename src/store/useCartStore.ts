@@ -13,6 +13,8 @@ interface CartItem {
 interface CartStore {
   items: CartItem[];
   addItem: (item: CartItem) => void;
+  increaseQuantity: (id:number)=> void;
+  decreaseQuantity: (id:number) => void;
  
 }
 
@@ -31,7 +33,28 @@ const useCartStore = create<CartStore>((set) => ({
     
     return { items: [...items] }; 
   }),
+
+  increaseQuantity: (id) => set((state) => {
+    const items = state.items;
+    const item = items.find(item => item.id === id); 
+    if (item) {
+      item.quantity += 1; 
+    }
+
+    return {items: [...items]}
+     
+   
+  }),
+
+  decreaseQuantity : (id)=> set((state)=> {
+    const items = state.items;
+    const item = items.find((item) => item.id === id);
+    if (item) {
+      item.quantity -= 1;  
+    }
+   return {items: [...items]}
  
+  }),
 }))
  
 
