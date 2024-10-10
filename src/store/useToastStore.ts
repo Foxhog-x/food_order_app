@@ -11,7 +11,7 @@ const useToastStore = create<TostProps>((set) => ({
  
   showToast: (message) => {
     set({ message, visible: true });
-    setTimeout(() => set({ visible: false }), 3000);  
+    setTimeout(() => set({ visible: false }), 1000);  
   },
 
 
