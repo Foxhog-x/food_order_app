@@ -1,6 +1,8 @@
 import useCartStore from "../store/useCartStore";
+import useToastStore from "../store/useToastStore";
 import DeleteIcon from "/delete.png";
 export const Cartpage = () => {
+  const { showToast } = useToastStore();
   const {
     items,
     increaseQuantity,
@@ -13,13 +15,23 @@ export const Cartpage = () => {
   console.log(items, "cart Items");
   const handleIncrement = (id: number) => {
     increaseQuantity(id);
+    showToast("added");
   };
   const handleDecrement = (id: number) => {
     decreaseQuantity(id);
+    showToast("reduce");
   };
 
   const handleRemove = (id: number) => {
-    removeItem(id);
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    if (confirmed) {
+      removeItem(id);
+      showToast("removed successfully");
+    } else {
+      return;
+    }
   };
 
   const handleClear = () => {
