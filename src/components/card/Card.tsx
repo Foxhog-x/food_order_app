@@ -50,7 +50,7 @@ export const Card = ({ foodItemData }: any) => {
               </p>
               <div className="flex justify-end items-center mt-4  ">
                 <button
-                  className="bg-green-300"
+                  className="bg-green-400 hover:bg-green-700"
                   onClick={() => {
                     handleAddToCart(foodItemData);
                   }}
