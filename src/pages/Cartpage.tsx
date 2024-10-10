@@ -1,13 +1,28 @@
 import useCartStore from "../store/useCartStore";
-
+import DeleteIcon from "/delete.png";
 export const Cartpage = () => {
-  const { items, increaseQuantity, decreaseQuantity } = useCartStore();
+  const {
+    items,
+    increaseQuantity,
+    decreaseQuantity,
+    removeItem,
+    clearAllItems,
+    calculateTotal,
+  } = useCartStore();
   console.log(items, "cart Items");
   const handleIncrement = (id) => {
     increaseQuantity(id);
   };
   const handleDecrement = (id) => {
     decreaseQuantity(id);
+  };
+
+  const handleRemove = (id) => {
+    removeItem(id);
+  };
+
+  const handleClear = () => {
+    clearAllItems();
   };
   return (
     <div className="container mx-auto p-8">
@@ -27,24 +42,34 @@ export const Cartpage = () => {
                     <h3 className="text-xl font-semibold">{item.name}</h3>
                     <p className="text-gray-500">${item.price} each</p>
                     <p className="text-gray-700">Quantity: {item.quantity}</p>
-                    <div className="flex mt-2 space-x-2">
-                      <button
-                        onClick={() => handleDecrement(item.id)}
-                        className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
-                      >
-                        -
-                      </button>
-                      <button
-                        className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
-                        onClick={() => handleIncrement(item.id)}
-                      >
-                        +
-                      </button>
+                    <div className="flex gap-5 mt-2 space-x-2">
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleDecrement(item.id)}
+                          className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
+                        >
+                          -
+                        </button>
+                        <button
+                          className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
+                          onClick={() => handleIncrement(item.id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          className="px-1 py-1 rounded hover:bg-gray-300 transition-colors bg-none"
+                          onClick={() => handleRemove(item.id)}
+                        >
+                          <img src={DeleteIcon} alt="Delete" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <p className="text-xl font-semibold">
-                  {item.price * item.quantity}
+                  ${item.price * item.quantity}
                 </p>
               </div>
             </div>
@@ -55,9 +80,12 @@ export const Cartpage = () => {
       )}
 
       <div className="mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
-        <h3 className="text-2xl font-bold mb-4">Total:</h3>
-        <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
-          Clear Cart
+        <h3 className="text-2xl font-bold mb-4">Total:{calculateTotal()}</h3>
+        <button
+          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
+          onClick={() => handleClear()}
+        >
+          Clear All
         </button>
       </div>
     </div>
