@@ -2,7 +2,8 @@ import useCartStore from "../../store/useCartStore";
 import useToastStore from "../../store/useToastStore";
 
 export const Card = ({ foodItemData }) => {
-  const { name, price, description } = foodItemData;
+  const { name, image, price, description } = foodItemData;
+  console.log(foodItemData);
   const { showToast } = useToastStore();
   const { addItem } = useCartStore();
   const handleAddToCart = (itemAdded) => {
@@ -14,11 +15,13 @@ export const Card = ({ foodItemData }) => {
     <>
       {foodItemData && (
         <div className="max-w-sm p-3 rounded flex flex-col items-center justify-between gap-4 bg-white shadow-xl overflow-hidden">
-          <img
-            className="w-55 min-h-52 object-fit"
-            src="/logo.jpg"
-            alt="foodImage"
-          />
+          <div className="flex items-center justify-center w-full h-80 overflow-hidden">
+            <img
+              className="h-full w-full object-fill"
+              src={image}
+              alt="foodImage"
+            />
+          </div>
 
           <div className="p-2 flex items-center ">
             <div className="flex flex-col justify-between gap-2">

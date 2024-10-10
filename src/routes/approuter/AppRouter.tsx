@@ -3,6 +3,7 @@ import { Layout } from "../../layout/Layout";
 import { Menupage } from "../../pages/Menupage";
 import { Cartpage } from "../../pages/Cartpage";
 import { Homepage } from "../../pages/Homepage";
+import { Loginpage } from "../../pages/Loginpage";
 
 export const AppRouter = () => {
   return (
@@ -31,6 +32,14 @@ export const AppRouter = () => {
           element={
             <Layout>
               <Homepage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <Loginpage />
             </Layout>
           }
         />
