@@ -69,12 +69,13 @@ export const Cartpage = () => {
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleDecrement(item.id)}
-                          className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
+                          className="bg-inherit px-3 py-1 rounded 
+                          border-gray-300 hover:bg-gray-300 transition-colors "
                         >
                           -
                         </button>
                         <button
-                          className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors"
+                          className="bg-inherit px-3 py-1 rounded hover:bg-gray-300 transition-colors border border-gray-300"
                           onClick={() => handleIncrement(item.id)}
                         >
                           +

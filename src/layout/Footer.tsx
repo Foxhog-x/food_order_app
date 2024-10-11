@@ -1,9 +1,10 @@
 export const Footer = () => {
   return (
-    <footer className="border-b border-gray-300 bg-white h-20 flex items-center shadow-lg">
+    <footer className="border-b border-gray-300 bg-inherit h-20 flex items-center shadow-lg">
       <div className="container mx-auto px-4 text-center">
         <p className="text-sm">
-          &copy; 2024 Your Company. All rights reserved.
+          &copy; 2024 Devxnext Corporation (India) Private Limited. All rights
+          reserved.
         </p>
         <div className="mt-2">
           <a href="/" className="text-gray-400 hover:text-gray-200 mx-2">
