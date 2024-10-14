@@ -5,7 +5,7 @@ import useCartStore from "../store/useCartStore";
 export const Header = () => {
   const { getTotalCountofItem } = useCartStore();
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-inherit opacity-70 h-20 flex items-center shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 bg-inherit h-20 flex items-center shadow-lg">
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center gap-5">
           <div className="md:hidden block">
